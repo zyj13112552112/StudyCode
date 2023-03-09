@@ -1,0 +1,15 @@
+version: "3"
+
+services:
+  #rabbitmq服务
+  #docker-compose up -d 启动
+  #进入容器内 docker-compose exec rabbitmq01 bash
+  #启动web页面访问 rabbitmq-plugins enable rabbitmq_management
+  rabbitmq01:
+    image: rabbitmq
+    ports:
+       - "15672:15672"
+       - "5672:5672"
+    environment:
+      RABBITMQ_DEFAULT_USER: admin
+      RABBITMQ_DEFAULT_PASS: admin
