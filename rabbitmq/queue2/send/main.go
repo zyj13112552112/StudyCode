@@ -33,13 +33,11 @@ func send() {
 		err = ch.Publish("", q.Name, false, false, amqp.Publishing{
 			ContentType: "test/plain",
 			Body:        []byte(msg + strconv.Itoa(i)),
-			//轮询
+
 			DeliveryMode: amqp.Persistent,
 		})
 		if err != nil {
 			log.Fatal("消息"+strconv.Itoa(i)+"发送失败 ", err)
-		} else {
-			log.Println("消息发送成功，消息内容: ", msg)
 		}
 	}
 
